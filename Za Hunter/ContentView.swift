@@ -36,12 +36,6 @@ struct ContentView: View {
             performSearch(item: "Pizza")
         })
     }
-    
-    struct ContentView_Previews: PreviewProvider {
-        static var previews: some View {
-            ContentView()
-        }
-    }
     func performSearch(item: String) {
         let searchRequest = MKLocalSearch.Request()
         searchRequest.naturalLanguageQuery = item
@@ -57,11 +51,6 @@ struct ContentView: View {
             }
         }
     }
-    struct Place: Identifiable {
-        let id = UUID()
-        let annotation: MKPointAnnotation
-        let mapItem: MKMapItem
-    }
 }
 struct Marker: View {
     var mapItem: MKMapItem
@@ -71,5 +60,15 @@ struct Marker: View {
                 Image("pizza")
             })
         }
+    }
+}
+struct Place: Identifiable {
+    let id = UUID()
+    let annotation: MKPointAnnotation
+    let mapItem: MKMapItem
+}
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
     }
 }
